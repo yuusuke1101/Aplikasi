@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda Bemat</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .menu-item {
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-item i {
+            font-size: 50px;
+            margin-bottom: 10px;
+            color: #007bff;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .menu-item:hover i {
+            color: #0056b3;
+        }
+
+        .menu-item h3 {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .menu-item a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .menu-item a:hover {
+            text-decoration: none;
+        }
+
+        .animated-box {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center py-5 bg-primary text-white">
+        <h1 class="animated-box">Selamat Datang di Beranda aplikasi Bemat</h1>
+    </header>
+
+    <div class="container">
+        <div class="row text-center g-4">
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="www.langitindoniaga.co.id/mitra/index.php">
+                        <i class="fas fa-user-tie"></i>
+                        <h3>Login Mitra</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="www.langitindoniaga.co.id/warung/index.php">
+                        <i class="fas fa-store"></i>
+                        <h3>Login Warung</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="link_detail_kantor_bemat.html">
+                        <i class="fas fa-building"></i>
+                        <h3>Detail Kantor Bemat</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="link_profile_perusahaan.html">
+                        <i class="fas fa-id-badge"></i>
+                        <h3>Profile Perusahaan</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="link_contact_cs.html">
+                        <i class="fas fa-headset"></i>
+                        <h3>Contact CS Admin</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="link_pengumuman.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Pengumuman</h3>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 animated-box">
+                <div class="menu-item shadow p-4 rounded bg-white">
+                    <a href="link_download_app.html">
+                        <i class="fas fa-download"></i>
+                        <h3>Download App</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 bg-dark text-white mt-5">
+        <p>&copy; 2024 Bemat. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
