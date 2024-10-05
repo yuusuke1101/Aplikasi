@@ -3,152 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda Bemat</title>
+    <title>Beranda Website Modern</title>
     
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Custom CSS -->
+
     <style>
+        /* Styling umum */
         body {
             background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .container {
-            margin-top: 50px;
+        header {
+            position: relative;
+            background-color: #007bff;
+            color: white;
+            padding: 60px 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
-        .menu-item {
-            transition: transform 0.3s ease-in-out;
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            animation: slideIn 2s ease-out;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .menu-item:hover {
-            transform: scale(1.1);
+        /* Tanggal dan Waktu serta logo di kanan atas */
+        .header-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            z-index: 2;
         }
 
-        .menu-item i {
-            font-size: 50px;
-            margin-bottom: 10px;
+        .header-right .datetime {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 15px; /* Jarak antara waktu dan logo */
+        }
+
+        .header-right img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animasi Slide untuk "Selamat Datang" */
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Background animasi */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(120deg, #007bff, #00c6ff);
+            transform: rotate(-25deg);
+            animation: gradientShift 10s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0 0;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0 0;
+            }
+        }
+
+        /* Menu grid */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+
+        .menu li {
+            list-style: none;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 30px 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menu i {
+            font-size: 3rem;
             color: #007bff;
-            transition: color 0.3s ease-in-out;
+            transition: color 0.3s ease;
         }
 
-        .menu-item:hover i {
+        .menu li:hover i {
             color: #0056b3;
         }
 
-        .menu-item h3 {
-            margin-top: 10px;
-            font-weight: bold;
-            font-size: 1.2rem;
+        .menu span {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
         }
 
-        .menu-item a {
-            text-decoration: none;
-            color: #000;
-        }
-
-        .menu-item a:hover {
-            text-decoration: none;
-        }
-
-        .animated-box {
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        /* Responsive untuk mobile */
+        @media (max-width: 768px) {
+            .menu {
+                grid-template-columns: repeat(2, 1fr); /* Tetap dua kolom di mobile */
+                gap: 15px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .menu li {
+                padding: 20px 15px;
+            }
+
+            .menu i {
+                font-size: 2.5rem;
+            }
+
+            .menu span {
+                font-size: 0.9rem;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-right .datetime {
+                font-size: 1rem;
+            }
+
+            .header-right img {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="text-center py-5 bg-primary text-white">
-        <h1 class="animated-box">Selamat Datang di Beranda aplikasi Bemat</h1>
+    <!-- Header Section dengan Animasi -->
+    <header>
+        <div class="header-bg"></div>
+        <h1>Selamat Datang di Beranda</h1>
+        <div class="header-right">
+            <div class="datetime" id="datetime"></div>
+            <img src="https://via.placeholder.com/50" alt="Logo Perusahaan"> <!-- Ganti dengan logo asli -->
+        </div>
     </header>
 
-    <div class="container">
-        <div class="row text-center g-4">
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="https://www.langitindoniaga.co.id/mitra/index.php">
-                        <i class="fas fa-user-tie"></i>
-                        <h3>Login Mitra</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="https://www.langitindoniaga.co.id/warung/index.php">
-                        <i class="fas fa-store"></i>
-                        <h3>Login Warung</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="link_detail_kantor_bemat.html">
-                        <i class="fas fa-building"></i>
-                        <h3>Detail Kantor Bemat</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="link_profile_perusahaan.html">
-                        <i class="fas fa-id-badge"></i>
-                        <h3>Profile Perusahaan</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="link_contact_cs.html">
-                        <i class="fas fa-headset"></i>
-                        <h3>Contact CS Admin</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="link_pengumuman.html">
-                        <i class="fas fa-bullhorn"></i>
-                        <h3>Pengumuman</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 animated-box">
-                <div class="menu-item shadow p-4 rounded bg-white">
-                    <a href="https://yuusuke1101.github.io/AdminBematSupport/DownloadLink.html">
-                        <i class="fas fa-download"></i>
-                        <h3>Download App</h3>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="text-center py-4 bg-dark text-white mt-5">
-        <p>&copy; 2024 Bemat. All rights reserved.</p>
-    </footer>
+    <!-- Menu Section -->
+    <nav>
+        <ul class="menu">
+            <li>
+                <a href="https://example.com/website" target="_blank">
+                    <i class="fas fa-globe"></i>
+                    <span>Website</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.com/profil" target="_blank">
+                    <i class="fas fa-building"></i>
+                    <span>Profil Perusahaan</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.com/cs-admin" target="_blank">
+                    <i class="fas fa-headset"></i>
+                    <span>CS Admin</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.com/pengumuman" target="_blank">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Pengumuman & Program</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://example.com/download" target="_blank">
+                    <i class="fas fa-download"></i>
+                    <span>Download App</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript untuk Menampilkan Tanggal dan Waktu Real-Time -->
+    <script>
+        function updateDateTime() {
+            const dateTimeElement = document.getElementById('datetime');
+            const now = new Date();
+            const options = {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                timeZone: 'Asia/Jakarta', timeZoneName: 'short'
+            };
+            const dateTimeString = now.toLocaleDateString('id-ID', options);
+            dateTimeElement.textContent = dateTimeString;
+        }
+
+        setInterval(updateDateTime, 1000); // Update setiap detik
+        updateDateTime(); // Panggil langsung saat halaman dimuat
+    </script>
 </body>
 </html>
